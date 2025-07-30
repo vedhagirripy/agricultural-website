@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AgriKart - Dark</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li onclick="showPage('home')">🏠 Home</li>
+      <li onclick="showPage('about')">📖 About</li>
+      <li onclick="showPage('contact')">📞 Contact</li>
+      <li onclick="showPage('search')">🔍 Search</li>
+      <li onclick="showPage('orders')">📦 Orders</li>
+      <li onclick="showPage('signup')">📝 Sign Up</li>
+      <li onclick="showPage('cart')">🛒 Cart</li>
+      <li onclick="showPage('login')">🔑 Login</li>
+    
+      <li onclick="showPage('payment')">💳 Payment</li>
+    </ul>
+  </nav>
+
+  <div id="home" class="page active">
+    <h1>Categories</h1>
+    <button onclick="showCategory('fruits')">Fruits</button>
+    <button onclick="showCategory('vegetables')">Vegetables</button>
+    <button onclick="showCategory('spinach')">Spinach</button>
+    <button onclick="showCategory('seeds')">Seeds</button>
+    <div id="categoryDisplay"></div>
+  </div>
+
+  <div id="about" class="page"><h2>About Us</h2><p>AgriKart connects farmers with consumers, offering fresh, chemical-free produce.</p></div>
+  <div id="contact" class="page"><h2>Contact Us</h2><p>Email: contact@agrikart.com</p></div>
+
+  <div id="search" class="page">
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button onclick="searchProduct()">Search</button>
+    <div id="searchResult"></div>
+  </div>
+
+  <div id="orders" class="page"><h2>Your Orders</h2><div id="orderList"></div></div>
+
+  <div id="signup" class="page">
+    <h2>Sign Up</h2>
+    <form onsubmit="signupUser(event)">
+      <input type="text" name="name" placeholder="Name" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div id="signupMessage"></div>
+  </div>
+
+  <div id="cart" class="page"><h2>Cart</h2><div id="cartItems"></div></div>
+
+  <div id="login" class="page">
+    <h2>Login</h2>
+    <form onsubmit="loginUser(event)">
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginMessage"></div>
+  </div>
+
+  <div id="adminLogin" class="page">
+    <h2>Admin Login</h2>
+    <form onsubmit="adminLogin(event)">
+      <input type="email" name="email" placeholder="Admin Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+    <div id="adminMessage"></div>
+    <div id="adminDashboard" style="display:none">
+      <h3>📊 Admin Dashboard</h3>
+      <p id="stockStatus"></p>
+      <p id="salesReport"></p>
+    </div>
+  </div>
+
+  <div id="payment" class="page">
+    <h2>Secure Payment</h2>
+    <form onsubmit="makePayment(event)">
+      <input type="text" id="paymentItem" name="item" readonly><br>
+      <input type="number" id="paymentAmount" name="amount" placeholder="Amount (INR)" required><br>
+      <label><input type="radio" name="mode" value="Card" required> Credit/Debit Card</label><br>
+      <label><input type="radio" name="mode" value="NetBanking"> Net Banking</label><br><br>
+      <button type="submit">Pay Now</button>
+    </form>
+    <div id="paymentMsg"></div>
+  </div>
+  
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>
